@@ -9,7 +9,7 @@
 
 Broadcast footage contains much more than a scoreline. This project explores how to recover player identities, team membership, ball movement, and spatial structure from match video, then use tracking data to reason about soccer events.
 
-Developed as a CSE327 project at **SUNY Korea**, the work connects pretrained vision models with geometric projection and interpretable event rules. Its main engineering focus is making these components work together: handling fragmented player IDs, unreliable ball detections, mismatched pitch keypoints, and incompatible tracking-data formats.
+The project connects pretrained vision models with geometric projection and interpretable event rules. Its main engineering focus is making these components work together: handling fragmented player IDs, unreliable ball detections, mismatched pitch keypoints, and incompatible tracking-data formats.
 
 > **Start here:** [Football analysis notebook](notebooks/football-ai.ipynb) · [Event generator](TrackingDataToEventData/generate_event_data.py) · [Saved evaluation results](evaluation/benchmark_comparison_summary_10000.csv)
 
@@ -278,10 +278,4 @@ The notebook is adapted from Roboflow's football-analysis tutorial. Pretrained m
 - [SoccerNet Ball Action Spotting](https://www.soccer-net.org/tasks/ball-action-spotting) and [FOOTPASS](https://github.com/JeremieOchin/FOOTPASS) — related soccer action-spotting work.
 
 Consult upstream licenses and dataset terms before reusing third-party code, pretrained weights, or match footage.
-
-## Author
-
-**[Bilol Meliboev](https://github.com/Bilolini)**  
-SUNY Korea · Computer Science  
-[bilol.meliboev@stonybrook.edu](mailto:bilol.meliboev@stonybrook.edu)
 
