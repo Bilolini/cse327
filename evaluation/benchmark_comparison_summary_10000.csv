@@ -1,0 +1,3 @@
+Sample,Frame limit,Benchmark events total,Benchmark events start<=10000,Generated events,Strict matches Type+Team ±25f,Strict precision,Strict recall,Strict F1,Loose matches Type ±25f,Loose precision,Loose recall,Loose F1
+1,10000,1745,138,116,95,0.819,0.6884,0.748,95,0.819,0.6884,0.748
+2,10000,1935,167,148,129,0.8716,0.7725,0.819,129,0.8716,0.7725,0.819

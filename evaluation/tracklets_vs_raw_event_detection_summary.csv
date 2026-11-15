@@ -1,0 +1,3 @@
+CSV,With GTA-link sample,Without GTA-link sample,Events with GTA-link,Events without GTA-link,Event count change,Identical full events excluding players,With GTA-link overlap %,Without GTA-link overlap %
+121364_0.csv,8,9,4,4,0,4,100.0,100.0
+121364_2.csv,11,12,26,27,-1,19,73.1,70.4

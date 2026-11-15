@@ -1,0 +1,80 @@
+from FootballMatchAnalysis.analysis.utils import *
+import math
+
+class Player:
+    def __init__(self, x, y, vx, vy, speed, team, name=""):
+        self.x = x
+        self.y = y
+        self.vx = vx
+        self.vy = vy
+        self.speed = speed
+        self.team = team
+        self.name = name
+
+    def coords(self):
+        return (self.x, self.y)
+    
+    def coords_in_radius(self, radius=5):
+        radius = int(radius)+1
+
+        x = self.x
+        y = self.y
+        step = 1
+        circumference_steps = {
+            "1" : .45,
+            "2" : .4,
+            "3" : .35,
+            "4" : .3,
+            "5" : .25
+        }
+
+        points = []
+        for r in range(step, radius+1, step):
+            circumference_step = 1
+            if str(r) in circumference_steps:
+                circumference_step = circumference_steps[str(r)]
+                
+            res = circumference_points((x,y), r, circumference_step)
+            for ps in res:
+                points.append(ps)
+
+        return points
+
+    def to_dict(self):
+        return {
+            "name" : self.name,
+            "team" : self.team
+        }
+    
+    # Return True if point is in player's peripheralvision
+    def in_peripheral_vision(self, point_x, point_y):
+        if self.vx == 0 and self.vy == 0:
+            return False
+        
+        dx = point_x - self.x
+        dy = point_y - self.y
+        
+        dot = self.vx * dx + self.vy * dy
+        
+        return dot >= 0
+
+    def in_direct_view(self, point_x, point_y, half_angle_deg=45):
+        if self.vx == 0 and self.vy == 0:
+            return False
+
+        dx = point_x - self.x
+        dy = point_y - self.y
+
+        dot = self.vx * dx + self.vy * dy
+
+        v_mag_sq = self.vx**2 + self.vy**2
+        d_mag_sq = dx**2 + dy**2
+
+        if d_mag_sq == 0:
+            return True
+
+        # Convert angle to cosine threshold
+        cos_theta = math.cos(math.radians(half_angle_deg))
+
+        # Compare without sqrt
+        return dot > 0 and (dot**2 >= (cos_theta**2) * v_mag_sq * d_mag_sq)
